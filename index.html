@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Will You Be My Valentine?</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f8f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            text-align: center;
+            padding: 20px;
+            border-radius: 10px;
+            background-color: #fff;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            color: #f07c87;
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            transition: font-size 0.3s;
+        }
+
+        .buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .btn {
+            padding: 10px 20px;
+            font-size: 1.2rem;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .yes-btn {
+            background-color: #f07c87;
+            color: white;
+        }
+
+        .no-btn {
+            background-color: #e4e4e4;
+            color: #555;
+        }
+
+        .yes-btn:hover {
+            background-color: #d46d7f;
+        }
+
+        .no-btn:hover {
+            background-color: #c2c2c2;
+        }
+
+        .please_text {
+            margin: 10px;
+            font-size: 1.2rem;
+            transition: font-size 0.3s;
+        }
+
+        .emoji {
+            font-size: 1.5rem;
+        }
+
+        .header_II {
+            text-align: center;
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="header" style="text-align: center;">
+            <h1>Will you be my Valentine?</h1>
+            <img width="200" src="01.gif" alt="">
+        </div>
+        <div class="header_II">
+            <h1>Yeeeee You Are Officially Mine ❤️</h1>
+            <img width="200" src="hug.gif" alt="">
+        </div>
+        <div class="please_text" style="margin: 10px; display: none;">
+            <span>Please!</span> <span class="emoji">🥺</span>
+        </div>
+
+        <div class="buttons">
+            <button class="btn yes-btn">Yes 😘</button>
+            <button class="btn no-btn">No ☹️</button>
+        </div>
+    </div>
+
+    <script>
+        $(document).ready(function () {
+            let noClickCount = 0;  // To track the number of "No" clicks
+
+            $('.no-btn').click(function () {
+                noClickCount++;
+
+                if (noClickCount > 0) {
+                    $('.please_text').show();
+                }
+
+                let currentFontSize = parseFloat($('.yes-btn').css('font-size'));
+                $('.yes-btn').css('font-size', (currentFontSize + 5) + 'px');
+
+                let currentFontSizeText = parseFloat($('.please_text').css('font-size'));
+                $('.please_text').css('font-size', (currentFontSizeText + 2) + 'px');
+
+                let currentEmojiSize = parseFloat($('.emoji').css('font-size'));
+                $('.emoji').css('font-size', (currentEmojiSize + 0.5) + 'px');
+
+                if (noClickCount === 10) {
+                    $('.no-btn').hide(); // Hide the "No" button
+                    $('.please_text').text('You have no other option!'); // Change the text to "You have no other option"
+                    $('.yes-btn').css('font-size', '40px'); // Make the Yes button large
+                }
+            });
+
+            $('.yes-btn').click(function () {
+                // Hide the current header, buttons, and "Please" text
+                $('.header').hide();
+                $('.please_text').hide();
+                $('.buttons').hide();
+
+                // Show the second header with the "You Are Officially Mine" message
+                $('.header_II').show();
+            });
+        });
+    </script>
+</body>
+
+</html>
