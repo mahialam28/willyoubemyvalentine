@@ -84,12 +84,43 @@
             text-align: center;
             display: none;
         }
+
+        /* Styling for the "Hey Konu" part */
+        .header span {
+            font-size: 1.5rem;
+            color: #555;
+            font-weight: bold;
+            display: inline-block;
+            margin-bottom: 15px;
+            animation: bounce 1s ease infinite;
+        }
+
+        .header span .emoji {
+            font-size: 1.8rem;
+            color: #f07c87;
+            margin-left: 5px;
+        }
+
+        /* Bounce animation for the "Penguin" emoji */
+        @keyframes bounce {
+            0% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+            100% {
+                transform: translateY(0);
+            }
+        }
+
     </style>
 </head>
 
 <body>
     <div class="container">
         <div class="header" style="text-align: center;">
+            <span>Hey Konu (Penguin 🐧)</span><br>
             <h1>Will you be my Valentine?</h1>
             <img width="200" src="01.gif" alt="">
         </div>
