@@ -85,7 +85,6 @@
             display: none;
         }
 
-        /* Styling for the "Hey Konu" part */
         .header span {
             font-size: 1.5rem;
             color: #555;
@@ -101,7 +100,6 @@
             margin-left: 5px;
         }
 
-        /* Bounce animation for the "Penguin" emoji */
         @keyframes bounce {
             0% {
                 transform: translateY(0);
@@ -140,7 +138,7 @@
 
     <script>
         $(document).ready(function () {
-            let noClickCount = 0;  // To track the number of "No" clicks
+            let noClickCount = 0; 
 
             $('.no-btn').click(function () {
                 noClickCount++;
@@ -159,19 +157,17 @@
                 $('.emoji').css('font-size', (currentEmojiSize + 0.5) + 'px');
 
                 if (noClickCount === 10) {
-                    $('.no-btn').hide(); // Hide the "No" button
-                    $('.please_text').text('You have no other option!'); // Change the text to "You have no other option"
-                    $('.yes-btn').css('font-size', '40px'); // Make the Yes button large
+                    $('.no-btn').hide();
+                    $('.please_text').text('You have no other option!');
+                    $('.yes-btn').css('font-size', '40px'); 
                 }
             });
 
             $('.yes-btn').click(function () {
-                // Hide the current header, buttons, and "Please" text
                 $('.header').hide();
                 $('.please_text').hide();
                 $('.buttons').hide();
 
-                // Show the second header with the "You Are Officially Mine" message
                 $('.header_II').show();
             });
         });
