@@ -104,14 +104,15 @@
             0% {
                 transform: translateY(0);
             }
+
             50% {
                 transform: translateY(-10px);
             }
+
             100% {
                 transform: translateY(0);
             }
         }
-
     </style>
 </head>
 
@@ -138,7 +139,8 @@
 
     <script>
         $(document).ready(function () {
-            let noClickCount = 0; 
+            let noClickCount = 0;
+            let pleaseText = "Please";
 
             $('.no-btn').click(function () {
                 noClickCount++;
@@ -153,13 +155,16 @@
                 let currentFontSizeText = parseFloat($('.please_text').css('font-size'));
                 $('.please_text').css('font-size', (currentFontSizeText + 2) + 'px');
 
-                let currentEmojiSize = parseFloat($('.emoji').css('font-size'));
-                $('.emoji').css('font-size', (currentEmojiSize + 0.5) + 'px');
+                let emojiText = '🥺'.repeat(noClickCount);
+                $('.emoji').text(emojiText);
+
+                pleaseText += "e";
+                $('.please_text span:first').text(pleaseText);
 
                 if (noClickCount === 10) {
                     $('.no-btn').hide();
                     $('.please_text').text('You have no other option! Honey 🍯 Just Say Yes 🥺');
-                    $('.yes-btn').css('font-size', '40px'); 
+                    $('.yes-btn').css('font-size', '40px');
                 }
             });
 
@@ -171,6 +176,7 @@
                 $('.header_II').show();
             });
         });
+
     </script>
 </body>
 
